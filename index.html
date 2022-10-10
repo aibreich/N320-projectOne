@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(217deg, rgba(0,252,255,.8), rgba(255, 0, 217, 0.8) 70.71%),
+            linear-gradient(127deg, rgba(255, 0, 217, 0.8), rgba(0,252,255,.8) 70.71%),
+            linear-gradient(336deg, rgba(0,252,255,.8), rgba(255, 0, 217, 0.8) 70.71%);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            
+        }
+
+        .big-cont {
+            background-color: rgb(69, 68, 68);
+            width: max-content;
+            height: 420px;
+            padding: 25px;
+            margin: 0 auto;
+            border-radius: 25px;
+            
+        }
+        .med-cont {
+            background-color: lightgrey;
+            width: max-content;
+            height: 380px;
+            padding: 20px;
+            margin: 0 auto;
+            border-radius: 15px;
+            
+        }
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            font-size: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            
+        }
+        
+        .dice-container {
+            width: 200px;
+            height: 125px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 0 auto;
+        }
+        .butt-container {
+            width: 200px;
+            height: 50px;
+            display: grid;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 0 auto;
+            grid-template-columns:repeat(2, auto);
+        }
+        .die {
+            width: 75px;
+            height: 75px;
+            background-color: black;
+        }
+
+        .player-container {
+          
+            width: 200px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            margin: 0 auto;
+        }
+
+        .playerProg1 {
+            width: 5px;
+            height: 10px;
+            background-color: black;
+        }
+
+        .playerProg2 {
+            width: 5px;
+            height: 10px;
+            background-color: black;
+        }
+        
+        .player1 {
+            
+            width: 60px;
+            height: 80px;
+        }
+        .player2 {
+            
+            width: 60px;
+            height: 80px;
+        }
+
+        .live {
+            display: block;
+        }
+        .nowin {
+            display: none;
+        }
+
+        /* .selected {
+    animation-name: selectedAnim;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.deselected {
+    animation-name: selectedAnim;
+    animation-duration: 1s;
+    animation-direction: reverse;
+    animation-fill-mode: forwards;
+}
+
+@keyframes selectedAnim {
+    from { height: 2em; background-color: #fff;}
+    to {height: 4em; background-color: #ffcfe4;}
+} */
+    </style>
+</head>
+<body>
+    <div class="big-cont">
+        <div class="med-cont">
+    <h1 style="display: flex;
+    align-items: center;
+    justify-content: space-evenly; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; margin-top: -12px;">7 n 11</h1>
+    <p style="display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: -20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;">The aim of the game is to land on a 7 or an 11</p>
+    <p style="display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: -15px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;">First to 5 wins</p>
+    <div id="diceRoll" class="center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> Dice One : Dice Two : Total :</div>
+    <div class="dice-container">
+       <div class="die" id="dice1"></div>
+    <div class="die" id="dice2"></div> 
+    </div>
+    <div class="butt-container">
+       <button style="width: 75px;
+       height: 25px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" id="rolly" onclick="mydice.playGame()">Roll Dice</button>
+    <button style="width: 75px;
+    height: 25px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" class="live" id="restarty" onclick="window.location.reload()">Restart</button> 
+    </div>
+    <div class="player-container">
+      <div class="player1">
+        <div class="playerProg1"id="playerProg1"></div>
+        <h4 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 18px;">Player 1</h4>
+        <div id="player1"></div>
+    </div>
+    <div class="player2">
+        <div class="playerProg2" id="playerProg2"></div>
+        <h4 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 18px;">Player 2</h4>
+        <div id="player2"></div>
+    </div>  
+    </div>
+    <div style="display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 10px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px; margin-top: -5px;" id="playerTurn">Player 1's Turn</div>
+</div></div>
+    <script src="js/app.js"></script>
+</body>
+</html>
