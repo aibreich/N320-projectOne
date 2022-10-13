@@ -188,9 +188,9 @@ class Game extends rollDice {
     console.log(total);
     // the dice svgs
     document.getElementById("dice1").style.backgroundImage =
-      "url('../images/dice-" + diceOne + ".svg')";
+      "url('./images/dice-" + diceOne + ".svg')";
     document.getElementById("dice2").style.backgroundImage =
-      "url('../images/dice-" + diceTwo + ".svg')";
+      "url('./images/dice-" + diceTwo + ".svg')";
 
     //if statements for progressing the progress bar
     if (move == 0) {
