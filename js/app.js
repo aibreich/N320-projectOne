@@ -23,6 +23,7 @@ let player2progress = 10;
 const rolly = document.querySelector("#rolly");
 const reset = document.querySelector("#restarty");
 reset.disabled = true;
+let dice = document.querySelector("img");
 
 class Game extends rollDice {
   outputElement;
@@ -37,9 +38,19 @@ class Game extends rollDice {
     let diceOne = this.pickRandom();
     let diceTwo = this.pickRandom();
     let total = diceOne + diceTwo;
+    let dice = document.querySelectorAll("img");
     let player1 = 0;
     let player2 = 1;
     move++;
+
+    dice.forEach(function (die) {
+      die.classList.add("shake");
+    });
+    setTimeout(function () {
+      dice.forEach(function (die) {
+        die.classList.remove("shake");
+      });
+    }, 400);
     // if / else if statements for the game to function wins being on 7 & 11
     if (total == 2) {
       console.log("loss");
@@ -187,10 +198,8 @@ class Game extends rollDice {
     }
     console.log(total);
     // the dice svgs
-    document.getElementById("dice1").style.backgroundImage =
-      "url('./images/dice-" + diceOne + ".svg')";
-    document.getElementById("dice2").style.backgroundImage =
-      "url('./images/dice-" + diceTwo + ".svg')";
+    document.getElementById("die-1").src = "./images/dice-" + diceOne + ".svg";
+    document.getElementById("die-2").src = "./images/dice-" + diceTwo + ".svg";
 
     //if statements for progressing the progress bar
     if (move == 0) {
@@ -198,15 +207,15 @@ class Game extends rollDice {
       document.getElementById("playerTurn").innerHTML = "Player 1's Turn";
       if (total == 7) {
         progress1.style.width = player1progress + "px";
-        player1progress = player1progress + 10;
+        player1progress = player1progress + 14;
         // console.log(player1progress);
       }
       if (total == 11) {
         progress1.style.width = player1progress + "px";
-        player1progress = player1progress + 10;
+        player1progress = player1progress + 14;
         // console.log(player1progress);
       }
-      if (player1progress >= 50) {
+      if (player1progress >= 70) {
         rolly.disabled = true;
         reset.disabled = false;
         document.getElementById("playerTurn").innerHTML = "Player 1 Won!!!";
@@ -217,15 +226,15 @@ class Game extends rollDice {
       document.getElementById("playerTurn").innerHTML = "Player 2's Turn";
       if (total == 7) {
         progress2.style.width = player2progress + "px";
-        player2progress = player2progress + 10;
+        player2progress = player2progress + 14;
         // console.log(player2progress);
       }
       if (total == 11) {
         progress2.style.width = player2progress + "px";
-        player2progress = player2progress + 10;
+        player2progress = player2progress + 14;
         // console.log(player2progress);
       }
-      if (player2progress >= 50) {
+      if (player2progress >= 70) {
         rolly.disabled = true;
         reset.disabled = false;
         document.getElementById("playerTurn").innerHTML = "Player 2 Won!!!";

@@ -120,10 +120,30 @@
     animation-fill-mode: forwards;
 }
 
+
 @keyframes selectedAnim {
     from { height: 2em; background-color: #fff;}
     to {height: 4em; background-color: #ffcfe4;}
 } */
+
+.shake {
+    animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+    0%{
+        transform: rotate(65deg);
+        
+    }
+    50%{
+        transform: rotate(-65deg);
+       margin-top: -24px;
+    }
+    100%{
+        transform: rotate(65deg);
+        
+    }
+}
     </style>
 </head>
 <body>
@@ -142,8 +162,15 @@
     margin-top: -15px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-size: 20px;">First to 5 wins</p>
     <div id="diceRoll" class="center" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"> Dice One : Dice Two : Total :</div>
     <div class="dice-container">
-       <div class="die" id="dice1"></div>
-    <div class="die" id="dice2"></div> 
+        
+       <img style="width: 75px;
+       height: 75px;
+       border-radius: 100%;
+       " src="./images/dice-1.svg" id="die-1"></img>
+    <img style="width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    " src="./images/dice-6.svg" id="die-2"></img> 
     </div>
     <div class="butt-container">
        <button style="width: 75px;
