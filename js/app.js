@@ -1,3 +1,4 @@
+//roll dice class
 class rollDice {
   // list of all items to be selected from randomly
   items;
@@ -13,18 +14,19 @@ class rollDice {
   }
 }
 
+//variables and grabbing my elements
 let move = 0;
 let progress1 = document.getElementById("playerProg1");
 let progress2 = document.getElementById("playerProg2");
 let player1progress = 10;
 let player2progress = 10;
-
-// let rolly = document.getElementById("rolly");
+//the buttons with the reset disabled by default
 const rolly = document.querySelector("#rolly");
 const reset = document.querySelector("#restarty");
 reset.disabled = true;
 let dice = document.querySelector("img");
 
+//game class
 class Game extends rollDice {
   outputElement;
   constructor(element) {
@@ -201,7 +203,7 @@ class Game extends rollDice {
     document.getElementById("die-1").src = "./images/dice-" + diceOne + ".svg";
     document.getElementById("die-2").src = "./images/dice-" + diceTwo + ".svg";
 
-    //if statements for progressing the progress bar
+    //if statements for progressing the progress bar player1
     if (move == 0) {
       console.log("player1");
       document.getElementById("playerTurn").innerHTML = "Player 1's Turn";
@@ -221,6 +223,7 @@ class Game extends rollDice {
         document.getElementById("playerTurn").innerHTML = "Player 1 Won!!!";
       }
     } else if (move == 1) {
+      //if statements for progressing the progress bar player2
       console.log("player2");
       move = move - 2;
       document.getElementById("playerTurn").innerHTML = "Player 2's Turn";
